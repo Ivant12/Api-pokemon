@@ -1,0 +1,13 @@
+.container {
+  padding: 1rem;
+}
+section {
+  margin-bottom: 1rem;
+}
+ul {
+  margin: 0 0 1rem 1rem;
+}
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

@@ -1,18 +1,22 @@
-<app-header (navigate)="changeView($event.view, $event.id)"></app-header>
+<app-header (navigate)="onNavigate($event)"></app-header>
 
 <div class="main-content">
-  <app-pokemon-list *ngIf="currentView === 'list'"
-                    (openDetail)="changeView('detail', $event)">
+  <app-pokemon-list
+    *ngIf="currentView === 'list'"
+    (openDetail)="changeView('detail', $event)">
   </app-pokemon-list>
 
-  <app-pokemon-detail *ngIf="currentView === 'detail'"
-                      [pokemonId]="selectedPokemonId"
-                      (back)="changeView('list')">
+  <app-pokemon-detail
+    *ngIf="currentView === 'detail'"
+    [pokemonId]="selectedPokemonId"
+    (back)="changeView('list')">
   </app-pokemon-detail>
 
-  <app-about *ngIf="currentView === 'about'"
-             (back)="changeView('list')">
+  <app-about
+    *ngIf="currentView === 'about'"
+    (back)="changeView('list')">
   </app-about>
 </div>
 
-<app-footer (navigate)="changeView($event.view)"></app-footer>
+<app-footer (navigate)="onNavigate($event)"></app-footer>
+

@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Listado de Pokémon</h2>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Buscar Pokémon"
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="searchPokemon()"
+    />
+    <button (click)="searchPokemon()">Buscar</button>
+  </div>
+
+  <div class="grid">
+    <div class="card" *ngFor="let pokemon of pokemons" (click)="openPokemonDetail(pokemon)">
+      <img
+        [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + extractId(pokemon.url) + '.png'"
+        alt="{{ pokemon.name }}"
+      />
+      <h3>{{ pokemon.name | titlecase }}</h3>
+    </div>
+  </div>
+
+  <div class="pagination" *ngIf="!isSearching">
+    <button (click)="prevPage()">Anterior</button>
+    <button (click)="nextPage()">Siguiente</button>
+  </div>
+</div>

@@ -19,32 +19,12 @@ export type ViewType = 'list' | 'detail' | 'about';
     PokemonDetailComponent,
     AboutComponent
   ],
-  template: `
-    <app-header (navigate)="onNavigate($event)"></app-header>
-
-    <div class="main-content">
-      <app-pokemon-list
-        *ngIf="currentView === 'list'"
-        (openDetail)="changeView('detail', $event)">
-      </app-pokemon-list>
-
-      <app-pokemon-detail
-        *ngIf="currentView === 'detail'"
-        [pokemonId]="selectedPokemonId"
-        (back)="changeView('list')">
-      </app-pokemon-detail>
-
-      <app-about
-        *ngIf="currentView === 'about'"
-        (back)="changeView('list')">
-      </app-about>
-    </div>
-
-    <app-footer (navigate)="onNavigate($event)"></app-footer>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'api-pokemon';
+
   currentView: ViewType = 'list';
   selectedPokemonId: number | null = null;
 
